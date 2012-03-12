@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.specification_version = 2 if s.respond_to? :specification_version=
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
 
-  s.name = 'sinatra'
+  s.name = 'sinatra-base'
   s.version = '1.0'
   s.date = '2010-03-23'
 
@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
     lib/sinatra/main.rb
     lib/sinatra/showexceptions.rb
     lib/sinatra/tilt.rb
-    sinatra.gemspec
+    sinatra-base.gemspec
     test/base_test.rb
     test/builder_test.rb
     test/contest.rb
