@@ -1,4 +1,4 @@
 require 'sinatra/base'
-require 'sinatra/main'
+#require 'sinatra/main'
 
-enable :inline_templates
+#enable :inline_templates

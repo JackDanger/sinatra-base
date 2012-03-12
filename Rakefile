@@ -132,11 +132,11 @@ if defined?(Gem)
   # Load the gemspec using the same limitations as github
   def spec
     require 'rubygems' unless defined? Gem::Specification
-    @spec ||= eval(File.read('sinatra.gemspec'))
+    @spec ||= eval(File.read('sinatra-base.gemspec'))
   end
 
   def package(ext='')
-    "pkg/sinatra-#{spec.version}" + ext
+    "pkg/sinatra-base-#{spec.version}" + ext
   end
 
   desc 'Build packages'
@@ -150,15 +150,15 @@ if defined?(Gem)
   directory 'pkg/'
   CLOBBER.include('pkg')
 
-  file package('.gem') => %w[pkg/ sinatra.gemspec] + spec.files do |f|
-    sh "gem build sinatra.gemspec"
+  file package('.gem') => %w[pkg/ sinatra-base.gemspec] + spec.files do |f|
+    sh "gem build sinatra-base.gemspec"
     mv File.basename(f.name), f.name
   end
 
   file package('.tar.gz') => %w[pkg/] + spec.files do |f|
     sh <<-SH
       git archive \
-        --prefix=sinatra-#{source_version}/ \
+        --prefix=sinatra-base-#{source_version}/ \
         --format=tar \
         HEAD | gzip > #{f.name}
     SH
